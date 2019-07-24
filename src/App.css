@@ -8,11 +8,12 @@
   pointer-events: none;
 }
 
+.header-margin{
+  margin-bottom: 30px;
+}
+
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-color: #e5e5e5;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -31,3 +32,70 @@
     transform: rotate(360deg);
   }
 }
+
+/*button search*/
+.searchbox.jsx-1671817932 {
+    height: 40px;
+    width: 303px;
+    margin-top: 8px;
+    padding-left: 35px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216);
+    border-image: initial;
+}
+.m_r\:30 {
+    margin-right: 30px;
+}
+
+.blackSreach{
+  font-size: 22px;
+  color: #000000;
+  margin-left: 12px;
+  position: absolute;
+  margin-top: 17px;
+  margin-right: 5px;
+}
+
+/*button search*/
+
+/*container*/
+.containerbaru{
+  margin-top:60px; 
+}
+
+.cards{
+   margin-left: 15px;
+   margin-right: 15px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+
+.margin_button{
+  margin-bottom: 20px;
+}
+
+
+.ImageHome{
+  margin-top: 200px;
+  width: 340px;
+  height: 60px;
+
+}
+
+.ImageHomeNotFound{
+  margin-top: 170px;
+  margin-bottom: 20px;
+
+}
+
+.texthasil{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.hitung{
+  margin-top: 15px;
+}
+/*container*/
