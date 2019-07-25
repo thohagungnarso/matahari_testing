@@ -21,6 +21,7 @@ class App extends React.Component {
         valueString: '',
         urlApi:'',
         urlApi2:'',
+        formSearch:1,
         productCount:0,
         responseCode:10,
         responseServer:10,
@@ -31,6 +32,8 @@ class App extends React.Component {
 
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
+
+          this.setState({formSearch:1});
 
           var key = event.target.value;
           var keybaru = key.replace(/ /g,"%20");
@@ -124,6 +127,7 @@ class App extends React.Component {
               dataProduct = {this.state.dataProduct}
               dataSort = {this.state.dataSort}
               productCount = {this.state.productCount}
+              formSearch = {this.state.formSearch}
             />
             </div>
           );

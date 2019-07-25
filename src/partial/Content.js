@@ -31,7 +31,9 @@ class Content extends React.Component {
           value:'',
           arrProduct:'',
           html:'',
-          statusFilter:0
+          statusFilter:0,
+          formSearch:this.props.formSearch,
+          keyword:''
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -39,7 +41,7 @@ class Content extends React.Component {
 	  }
 
     handleChange(event) {
-          this.setState({value: event.target.value,statusFilter:1});
+          this.setState({value: event.target.value,statusFilter:1,formSearch:0});
 
       var key = event.target.value;
       var keybaru = key.replace(/ /g,"+");
@@ -105,7 +107,7 @@ class Content extends React.Component {
 
   render() {
 
-    //console.log("Status filter : "+this.state.statusFilter)   
+    console.log("From Seacrh : "+this.state.formSearch)   
 
     const responseServer = this.props.responseServer;
     const responseCode = this.props.responseCode;
@@ -121,7 +123,7 @@ class Content extends React.Component {
     let arrProduct = '';
       if (dataProduct.length!==0) {
           if(this.state.statusFilter === 0){
-
+            
             arrProduct = <div className="col-md-12 cards row" id="ListProduct">
           {
             dataProduct.map((item, index) => {
@@ -175,6 +177,8 @@ class Content extends React.Component {
             )
 
           }</div>;
+
+          
             
           }else{
 
@@ -182,13 +186,12 @@ class Content extends React.Component {
              elem.parentNode.removeChild(elem);
 
              var formProduct = document.getElementById("formProduct");
-               var htmlbaru = '<div class="col-md-12 cards row" id="ListProduct"></div>';
-               formProduct.innerHTML = htmlbaru;
+             var htmlbaru = '<div class="col-md-12 cards row" id="ListProduct"></div>';
+             formProduct.innerHTML = htmlbaru;
 
-               var hasilbaru = '';
+             var hasilbaru = '';
 
-
-                if (dataProduct.length!==0) {
+             if (dataProduct.length!==0) {
                     {
                       dataProduct.map((item, index) => {
 
@@ -209,7 +212,9 @@ class Content extends React.Component {
                     };
 
                   }
-                  
+
+
+
 
             arrProduct = <div className="col-md-12 cards row" id="ListProduct">
 
@@ -257,9 +262,7 @@ class Content extends React.Component {
 
                               
                 )
-              }
-
-                
+              } 
 
               }
             )
