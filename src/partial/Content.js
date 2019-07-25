@@ -105,9 +105,7 @@ class Content extends React.Component {
 
   render() {
 
-    console.log(this.state.statusFilter)
-
-   
+    //console.log("Status filter : "+this.state.statusFilter)   
 
     const responseServer = this.props.responseServer;
     const responseCode = this.props.responseCode;
@@ -122,7 +120,9 @@ class Content extends React.Component {
     
     let arrProduct = '';
       if (dataProduct.length!==0) {
-          arrProduct = <div className="col-md-12 cards row" id="ListProduct">
+          if(this.state.statusFilter === 0){
+
+            arrProduct = <div className="col-md-12 cards row" id="ListProduct">
           {
             dataProduct.map((item, index) => {
 
@@ -175,6 +175,99 @@ class Content extends React.Component {
             )
 
           }</div>;
+            
+          }else{
+
+             var elem = document.getElementById("ListProduct");
+             elem.parentNode.removeChild(elem);
+
+             var formProduct = document.getElementById("formProduct");
+               var htmlbaru = '<div class="col-md-12 cards row" id="ListProduct"></div>';
+               formProduct.innerHTML = htmlbaru;
+
+               var hasilbaru = '';
+
+
+                if (dataProduct.length!==0) {
+                    {
+                      dataProduct.map((item, index) => {
+
+                       
+                        if(item.pricing.original.discount > 0 ){
+                            var elem = document.getElementById("ListProduct");
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.effective_price+'</b></p><p class="card-text"><strike>'+item.pricing.formatted.base_price+'</strike></p></div></div>';
+                            
+                        }else{
+                            var elem = document.getElementById("ListProduct");
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.base_price+'</b></p></div></div>';
+                            
+                          
+                        }
+                        }
+                      )
+
+                    };
+
+                  }
+                  
+
+            arrProduct = <div className="col-md-12 cards row" id="ListProduct">
+
+          {
+            dataProduct.map((item, index) => {
+
+              if(item.pricing.original.discount > 0 ){
+                  return (
+
+                    <Card style={{ width: '18rem' }} className="cards">
+                          <Card.Img variant="top" src={item.images[0].original} />
+                          <Card.Body className="text-left">
+                            <Card.Title>{item.brand.name}</Card.Title>
+                            <Card.Text>
+                              {item.product_title}
+                            </Card.Text>
+                            <Card.Text>
+                              <b>{item.pricing.formatted.effective_price}</b>
+                            </Card.Text>
+                            <Card.Text>
+                              <strike>{item.pricing.formatted.base_price}</strike>
+                            </Card.Text>   
+                            
+                          </Card.Body>
+                        </Card>
+
+                                
+                  ) 
+              }else{
+                  return (
+
+                  <Card style={{ width: '18rem' }} className="cards">
+                        <Card.Img variant="top" src={item.images[0].original} />
+                        <Card.Body className="text-left">
+                          <Card.Title>{item.brand.name}</Card.Title>
+                          <Card.Text>
+                            {item.product_title}
+                          </Card.Text>
+                           <Card.Text>
+                              <b>{item.pricing.formatted.base_price}</b>
+                            </Card.Text>         
+                          
+                        </Card.Body>
+                      </Card>
+
+                              
+                )
+              }
+
+                
+
+              }
+            )
+
+          }</div>;
+
+          }
+          
       }else{
         arrProduct = <div className="col-md-12">
                 <Image className="ImageHomeNotFound" src={notFoundImage} fluid />
