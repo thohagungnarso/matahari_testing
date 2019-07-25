@@ -76,11 +76,11 @@ class Content extends React.Component {
                        
                         if(item.pricing.original.discount > 0 ){
                             var elem = document.getElementById("ListProduct");
-                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.effective_price+'</b></p><p class="card-text"><strike>'+item.pricing.formatted.base_price+'</strike></p></div></div>';
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><div class="hoverdiv"><img class="card-img-top" src="'+item.images[0].original+'"><div class="overlay"><div class="text"><img class="card-img-top" src="'+item.images[1].original+'"></div></div></div><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.effective_price+'</b></p><p class="card-text"><strike>'+item.pricing.formatted.base_price+'</strike></p></div></div>';
                             
                         }else{
                             var elem = document.getElementById("ListProduct");
-                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.base_price+'</b></p></div></div>';
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><div class="hoverdiv"><img class="card-img-top" src="'+item.images[0].original+'"><div class="overlay"><div class="text"><img class="card-img-top" src="'+item.images[1].original+'"></div></div></div><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.base_price+'</b></p></div></div>';
                             
                           
                         }
@@ -132,7 +132,14 @@ class Content extends React.Component {
                   return (
 
                     <Card style={{ width: '18rem' }} className="cards">
-                          <Card.Img variant="top" src={item.images[0].original} />
+                          <div className="hoverdiv">
+                            <Card.Img variant="top" src={item.images[0].original} />
+                            <div className="overlay">
+                              <div className="text">
+                                <Card.Img variant="top" src={item.images[1].original} />
+                              </div>
+                            </div>
+                          </div>
                           <Card.Body className="text-left">
                             <Card.Title>{item.brand.name}</Card.Title>
                             <Card.Text>
@@ -154,7 +161,14 @@ class Content extends React.Component {
                   return (
 
                   <Card style={{ width: '18rem' }} className="cards">
-                        <Card.Img variant="top" src={item.images[0].original} />
+                         <div className="hoverdiv">
+                            <Card.Img variant="top" src={item.images[0].original} />
+                            <div className="overlay">
+                              <div className="text">
+                                <Card.Img variant="top" src={item.images[1].original} />
+                              </div>
+                            </div>
+                          </div>
                         <Card.Body className="text-left">
                           <Card.Title>{item.brand.name}</Card.Title>
                           <Card.Text>
@@ -198,11 +212,11 @@ class Content extends React.Component {
                        
                         if(item.pricing.original.discount > 0 ){
                             var elem = document.getElementById("ListProduct");
-                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.effective_price+'</b></p><p class="card-text"><strike>'+item.pricing.formatted.base_price+'</strike></p></div></div>';
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><div class="hoverdiv"><img class="card-img-top" src="'+item.images[0].original+'"><div class="overlay"><div class="text"><img class="card-img-top" src="'+item.images[1].original+'"></div></div></div><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.effective_price+'</b></p><p class="card-text"><strike>'+item.pricing.formatted.base_price+'</strike></p></div></div>';
                             
                         }else{
                             var elem = document.getElementById("ListProduct");
-                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><img class="card-img-top" src="'+item.images[0].original+'"><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.base_price+'</b></p></div></div>';
+                            elem.innerHTML += '<div class="cards card" style="width: 18rem;"><div class="hoverdiv"><img class="card-img-top" src="'+item.images[0].original+'"><div class="overlay"><div class="text"><img class="card-img-top" src="'+item.images[1].original+'"></div></div></div><div class="text-left card-body"><div class="card-title h5">'+item.brand.name+'</div><p class="card-text">'+item.product_title+'</p><p class="card-text"><b>'+item.pricing.formatted.base_price+'</b></p></div></div>';
                             
                           
                         }
@@ -225,7 +239,14 @@ class Content extends React.Component {
                   return (
 
                     <Card style={{ width: '18rem' }} className="cards">
-                          <Card.Img variant="top" src={item.images[0].original} />
+                           <div className="hoverdiv">
+                            <Card.Img variant="top" src={item.images[0].original} />
+                            <div className="overlay">
+                              <div className="text">
+                                <Card.Img variant="top" src={item.images[1].original} />
+                              </div>
+                            </div>
+                          </div>
                           <Card.Body className="text-left">
                             <Card.Title>{item.brand.name}</Card.Title>
                             <Card.Text>
@@ -247,7 +268,14 @@ class Content extends React.Component {
                   return (
 
                   <Card style={{ width: '18rem' }} className="cards">
-                        <Card.Img variant="top" src={item.images[0].original} />
+                         <div className="hoverdiv">
+                            <Card.Img variant="top" src={item.images[0].original} />
+                            <div className="overlay">
+                              <div className="text">
+                                <Card.Img variant="top" src={item.images[1].original} />
+                              </div>
+                            </div>
+                          </div>
                         <Card.Body className="text-left">
                           <Card.Title>{item.brand.name}</Card.Title>
                           <Card.Text>
